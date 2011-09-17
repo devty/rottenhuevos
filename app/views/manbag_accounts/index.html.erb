@@ -1,0 +1,29 @@
+<h1>Listing manbag_accounts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Api key</th>
+    <th>Next order</th>
+    <th>Times shat self</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @manbag_accounts.each do |manbag_account| %>
+  <tr>
+    <td><%= manbag_account.name %></td>
+    <td><%= manbag_account.api_key %></td>
+    <td><%= manbag_account.next_order %></td>
+    <td><%= manbag_account.times_shat_self %></td>
+    <td><%= link_to 'Show', manbag_account %></td>
+    <td><%= link_to 'Edit', edit_manbag_account_path(manbag_account) %></td>
+    <td><%= link_to 'Destroy', manbag_account, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Manbag account', new_manbag_account_path %>

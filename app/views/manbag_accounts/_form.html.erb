@@ -1,0 +1,33 @@
+<%= form_for(@manbag_account) do |f| %>
+  <% if @manbag_account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manbag_account.errors.count, "error") %> prohibited this manbag_account from being saved:</h2>
+
+      <ul>
+      <% @manbag_account.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :api_key %><br />
+    <%= f.text_field :api_key %>
+  </div>
+  <div class="field">
+    <%= f.label :next_order %><br />
+    <%= f.date_select :next_order %>
+  </div>
+  <div class="field">
+    <%= f.label :times_shat_self %><br />
+    <%= f.number_field :times_shat_self %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

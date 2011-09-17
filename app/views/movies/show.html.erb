@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @movie.title %>
+</p>
+
+<p>
+  <b>Genre:</b>
+  <%= @movie.genre %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @movie.score %>
+</p>
+
+<p>
+	<b>Will you shit yourself?</b>
+	<%= @movie.will_shit_your_pants? %>
+</p>
+
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>

@@ -1,0 +1,2 @@
+module ManbagAccountsHelper
+end
