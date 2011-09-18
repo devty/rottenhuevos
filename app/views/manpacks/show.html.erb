@@ -1,0 +1,25 @@
+<div class="alert-message notice"><h2><%= notice %></h2></div>
+
+<p>
+  <b>Name:</b>
+  <%= @manpack.name %>
+</p>
+
+<p>
+  <b>Api key:</b>
+  <%= @manpack.api_key %>
+</p>
+
+<p>
+  <b>Next order:</b>
+  <%= @manpack.next_order %>
+</p>
+
+<p>
+  <b>Times shat self:</b>
+  <%= @manpack.times_shat_self %>
+</p>
+
+
+<%= link_to 'Edit', edit_manpack_path(@manpack) %> |
+<%= link_to 'Back', manpacks_path %>

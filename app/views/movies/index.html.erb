@@ -1,15 +1,16 @@
-<h1>Listing movies</h1>
 
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Genre</th>
-    <th>Score</th>
-	<th>Will You Shit Yourself?</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Score</th>
+	  <th>Will You Shit Yourself?</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
 <% @movies.each do |movie| %>
   <tr>
@@ -17,13 +18,13 @@
     <td><%= movie.genre %></td>
     <td><%= movie.score %></td>
 	<td><%= movie.will_shit_your_pants? %></td>
-    <td><%= link_to 'Show', movie %></td>
-    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-    <td><%= link_to 'Destroy', movie, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', movie, :class => 'btn primary' %></td>
+    <td><%= link_to 'Edit', edit_movie_path(movie), :class => 'btn' %></td>
+    <td><%= link_to 'Destroy', movie, confirm: 'Are you sure?', method: :delete, :class => 'btn danger' %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Movie', new_movie_path %>
+<%= link_to 'See A Movie', new_movie_path, :class => 'btn primary' %>

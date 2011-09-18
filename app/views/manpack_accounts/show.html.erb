@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @manbag_account.name %>
+</p>
+
+<p>
+  <b>Api key:</b>
+  <%= @manbag_account.api_key %>
+</p>
+
+<p>
+  <b>Next order:</b>
+  <%= @manbag_account.next_order %>
+</p>
+
+<p>
+  <b>Times shat self:</b>
+  <%= @manbag_account.times_shat_self %>
+</p>
+
+
+<%= link_to 'Edit', edit_manbag_account_path(@manbag_account) %> |
+<%= link_to 'Back', manbag_accounts_path %>

@@ -11,9 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110917223203) do
+ActiveRecord::Schema.define(:version => 20110917225149) do
 
   create_table "manbag_accounts", :force => true do |t|
+    t.string   "name"
+    t.string   "api_key"
+    t.date     "next_order"
+    t.integer  "times_shat_self"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manpacks", :force => true do |t|
     t.string   "name"
     t.string   "api_key"
     t.date     "next_order"
@@ -27,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20110917223203) do
     t.string   "genre"
     t.integer  "score"
     t.boolean  "will_shit_your_pants"
+    t.string   "poster_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

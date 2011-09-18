@@ -1,4 +1,6 @@
 Rottenhuevos::Application.routes.draw do
+  resources :manpacks
+
   resources :manbag_accounts
 
   resources :movies

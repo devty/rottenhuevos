@@ -1,7 +1,15 @@
-class MoviesController < ApplicationController
 require 'rottentomatoes'
-include RottenTomatoes
-Rotten.api_key = '34r59jew67w375sraaqhm33q'
+require 'httparty'
+require 'manpack'
+
+class MoviesController < ApplicationController
+  include RottenTomatoes
+  include HTTParty
+  
+  base_uri = 'https://www.manpacks.com/api/update/user'
+  @manpack_api_key = 'RQ44_V0WCREJHD3H2JP9'
+  @manpack_user_key = 'KPWQ_WAX3WNLCP0OIPGT'
+  Rotten.api_key = '34r59jew67w375sraaqhm33q'
 
   # GET /movies
   # GET /movies.json
@@ -51,13 +59,32 @@ Rotten.api_key = '34r59jew67w375sraaqhm33q'
     @movie.score = @real_movie.ratings.audience_score
     @movie.genre = @real_movie.genres
     @movie.will_shit_your_pants = false
+    @movie.poster_url = @real_movie.posters.original
+    notice_message = "You will not shit yourself.  But always remember: wipe from front to back."
     #will you shit your pants?
-    if @real_movie.genres.include? 'Horror' && @movie.score > 50
+    if @real_movie.genres.include? 'Horror' and @real_movie.ratings.audience_score > 50
       @movie.will_shit_your_pants = true
+      #@manpack = Manpacks.first
+      options = { :body => {
+        :userKey => '5I9K_QWRKIEKSL9QRKYM',
+        :timestamp => Time.now.next_week.to_i }
+      }
+      response = self.class.post('https://www.manpacks.com/api/update/user/shipdate?api_key=' +
+                                  'RQ44_V0WCREJHD3H2JP9', options)
+      if response.code == 200 then 
+        puts 'Successfully bumped your underwear order to next week, poop pants.'
+        notice_message = 'Successfully bumped your underwear order to next week, pooppants.'
+        puts response
+      else
+        puts 'Something went wrong. You should use the washing machine.'
+        notice_message = 'Something went wrong. You should use the washing machine.'
+        puts response
+      end
     end
+    
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
+        format.html { redirect_to @movie, notice: notice_message }
         format.json { render json: @movie, status: :created, location: @movie }
       else
         format.html { render action: "new" }

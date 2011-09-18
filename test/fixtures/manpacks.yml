@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  api_key: MyString
+  next_order: 2011-09-17
+  times_shat_self: 1
+
+two:
+  name: MyString
+  api_key: MyString
+  next_order: 2011-09-17
+  times_shat_self: 1

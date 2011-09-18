@@ -5,6 +5,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :genre
       t.integer :score
       t.boolean :will_shit_your_pants 
+      t.string :poster_url
       t.timestamps
     end
   end

@@ -7,10 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id='center'>
-    <p>Rottenhuevos</p>
-    <p><i>Will you shit yourself?</i></p>
-<%= yield %>
-
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="#">RottenHuevos</a>
+        <a class="brand" href="#"><h6>Will you shit yourself?</h6></a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+     <div class="content">
+      <br/><br/><br/><br/><br/><br/>  
+       <%= yield %>
+     </div>
+  </div>
 </body>
 </html>

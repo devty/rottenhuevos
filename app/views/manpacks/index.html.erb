@@ -1,0 +1,29 @@
+<h1>Listing manpacks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Api key</th>
+    <th>Next order</th>
+    <th>Times shat self</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @manpacks.each do |manpack| %>
+  <tr>
+    <td><%= manpack.name %></td>
+    <td><%= manpack.api_key %></td>
+    <td><%= manpack.next_order %></td>
+    <td><%= manpack.times_shat_self %></td>
+    <td><%= link_to 'Show', manpack %></td>
+    <td><%= link_to 'Edit', edit_manpack_path(manpack) %></td>
+    <td><%= link_to 'Destroy', manpack, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Manpack', new_manpack_path %>
