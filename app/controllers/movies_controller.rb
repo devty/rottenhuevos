@@ -7,9 +7,9 @@ class MoviesController < ApplicationController
   include HTTParty
   
   base_uri = 'https://www.manpacks.com/api/update/user'
-  @manpack_api_key = 'RQ44_V0WCREJHD3H2JP9'
-  @manpack_user_key = 'KPWQ_WAX3WNLCP0OIPGT'
-  Rotten.api_key = '34r59jew67w375sraaqhm33q'
+  @manpack_api_key = 'censored'
+  @manpack_user_key = 'censored'
+  Rotten.api_key = 'censored'
 
   # GET /movies
   # GET /movies.json
@@ -66,11 +66,11 @@ class MoviesController < ApplicationController
       @movie.will_shit_your_pants = true
       #@manpack = Manpacks.first
       options = { :body => {
-        :userKey => '5I9K_QWRKIEKSL9QRKYM',
+        :userKey => 'censored',
         :timestamp => Time.now.next_week.to_i }
       }
       response = self.class.post('https://www.manpacks.com/api/update/user/shipdate?api_key=' +
-                                  'RQ44_V0WCREJHD3H2JP9', options)
+                                  "manpack_api_key, options)
       if response.code == 200 then 
         puts 'Successfully bumped your underwear order to next week, poop pants.'
         notice_message = 'Successfully bumped your underwear order to next week, pooppants.'
